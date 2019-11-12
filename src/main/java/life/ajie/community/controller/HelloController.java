@@ -12,6 +12,5 @@ public class HelloController {
         model.addAttribute("name",name);
         //字符串中的name对应html中的变量名为name，这里是把参数名为name的变量赋值给hello.html的name变量
         return "hello";
-        //厉害了
     }
 }
