@@ -14,10 +14,14 @@ import java.io.IOException;
 @Component
 public class GithubProvider {
     public String getAccessToken(AccessTokenDTO accessTokenDTO){
+        //将得到的信息类转成正确格式，再给API，得到信息返回
+
+
+
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-
+        //创建一个访问用户
         OkHttpClient client = new OkHttpClient();
-
+        //将信息打包成特定json格式
         RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
         Request request = new Request.Builder()
                 .url("https://github.com/login/oauth/access_token")

@@ -2,13 +2,18 @@ package life.ajie.community.controller;
 
 import life.ajie.community.dto.AccessTokenDTO;
 import life.ajie.community.dto.GithubUser;
+import life.ajie.community.mapper.UserMapper;
+import life.ajie.community.model.User;
 import life.ajie.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 @Controller
 public class AuthiruzeController {
@@ -25,18 +30,42 @@ public class AuthiruzeController {
     @Value("${github.redirect.url}")
     private String redirectUrl;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code")String code,
-                              @RequestParam(name="state")String state){
+                           @RequestParam(name="state")String state,
+                           HttpServletResponse response){
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
+        //信息包装类
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
         accessTokenDTO.setCode(code);
         accessTokenDTO.setRedirect_url(redirectUrl);
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
-        GithubUser user = githubProvider.getUser(accessToken);
-        System.out.println(user.getName());
-        return "index" ;
+        //利用信息类进入provider的API得到token
+        GithubUser githubUser = githubProvider.getUser(accessToken);
+        //利用token进入providerAPI得到user信息
+        if(githubUser!=null && githubUser.getId()!=null){
+            //登录成功，写cookie,和session
+            User user = new User();
+            String token = UUID.randomUUID().toString();
+            user.setToken(token);
+            user.setName(githubUser.getName());
+            user.setAccountId(String.valueOf(githubUser.getId()));
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified((user.getGmtCreate()));
+            user.setAvatarUrl(githubUser.getAvatarUrl());
+            userMapper.insert(user);
+            response.addCookie(new Cookie("token",token));
+            return "redirect:/";
+        }
+        else{
+            //登录失败，重新登录
+            return "redirect:/";
+        }
+
     }
 }
