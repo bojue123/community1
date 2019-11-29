@@ -5,6 +5,7 @@ import life.ajie.community.dto.GithubUser;
 import life.ajie.community.mapper.UserMapper;
 import life.ajie.community.model.User;
 import life.ajie.community.provider.GithubProvider;
+import life.ajie.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
@@ -32,6 +34,9 @@ public class AuthiruzeController {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code")String code,
@@ -55,10 +60,8 @@ public class AuthiruzeController {
             user.setToken(token);
             user.setName(githubUser.getName());
             user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified((user.getGmtCreate()));
             user.setAvatarUrl(githubUser.getAvatarUrl());
-            userMapper.insert(user);
+            userService.createOrUpdate(user);
             response.addCookie(new Cookie("token",token));
             return "redirect:/";
         }
@@ -68,4 +71,13 @@ public class AuthiruzeController {
         }
 
     }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,
+                         HttpServletResponse response){
+        request.getSession().removeAttribute("user");
+        Cookie cookie=new Cookie("token" ,null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/";    }
+
 }
