@@ -1,0 +1,67 @@
+2020-04-27 22:17:02.075  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3a2b64e2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.112  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3b8c30b8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.118  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6cd62122 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.122  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@72552de5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.124  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@227f0a9e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.126  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@78acf799 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.128  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@25ae069f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.132  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7e4f3dca (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.134  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@24bef367 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.136  WARN 16776 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3b31d856 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2020-04-27 22:17:02.137 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER WHERE ( TOKEN = ? ) 
+2020-04-27 22:17:02.138 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : ==> Parameters: 5a346836-cacf-421a-9add-82bb98a5989b(String)
+2020-04-27 22:17:02.139 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-04-27 22:17:02.141 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 22:17:02.141 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.N.countByExample                 : ==> Parameters: 1(Long), 0(Integer)
+2020-04-27 22:17:02.142 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.N.countByExample                 : <==      Total: 1
+2020-04-27 22:17:02.143 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, GMTCREATE, GMTMODIFIED, CREATOR, COMMENTCOUNT, VIEWCOUNT, LIKECOUNT, TAG , DESCRIPTION from question where ID = ? 
+2020-04-27 22:17:02.143 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.Q.selectByPrimaryKey             : ==> Parameters: 26(Long)
+2020-04-27 22:17:02.178 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2020-04-27 22:17:02.178 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER where ID = ? 
+2020-04-27 22:17:02.179 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-04-27 22:17:02.191 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-04-27 22:17:02.193 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.QuestionMapper.selectRelated     : ==>  Preparing: select * from question where id!=? and tag regexp ? 
+2020-04-27 22:17:02.193 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.QuestionMapper.selectRelated     : ==> Parameters: 26(Long), javascript(String)
+2020-04-27 22:17:02.203 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.QuestionMapper.selectRelated     : <==      Total: 1
+2020-04-27 22:17:02.204 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENTID, TYPE, COMMENTATOR, GMTCREATE, GMTMODIFIED, LIKECOUNT, CONTENT,COMMENTCOUNT from COMMENT WHERE ( PARENTID = ? and TYPE = ? ) order by gmtCreate desc 
+2020-04-27 22:17:02.204 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.CommentMapper.selectByExample    : ==> Parameters: 26(Long), 1(Integer)
+2020-04-27 22:17:02.206 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.m.CommentMapper.selectByExample    : <==      Total: 13
+2020-04-27 22:17:02.207 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER WHERE ( ID in ( ? ) ) 
+2020-04-27 22:17:02.207 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : ==> Parameters: 1(Long)
+2020-04-27 22:17:02.208 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-04-27 22:17:02.209 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.QuestionMapper.incView      : ==>  Preparing: update QUESTION set VIEWCOUNT = VIEWCOUNT + ? where id = ? 
+2020-04-27 22:17:02.209 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.QuestionMapper.incView      : ==> Parameters: 1(Integer), 26(Long)
+2020-04-27 22:17:02.256 DEBUG 16776 --- [http-nio-8080-exec-1] l.a.c.mapper.QuestionMapper.incView      : <==    Updates: 1
+2020-04-27 22:17:02.424 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER WHERE ( TOKEN = ? ) 
+2020-04-27 22:17:02.424 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.mapper.UserMapper.selectByExample  : ==> Parameters: 5a346836-cacf-421a-9add-82bb98a5989b(String)
+2020-04-27 22:17:02.452 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-04-27 22:17:02.453 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-27 22:17:02.454 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.m.N.countByExample                 : ==> Parameters: 1(Long), 0(Integer)
+2020-04-27 22:17:02.459 DEBUG 16776 --- [http-nio-8080-exec-2] l.a.c.m.N.countByExample                 : <==      Total: 1
+2020-04-23 22:17:21.052 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER WHERE ( TOKEN = ? ) 
+2020-04-23 22:17:21.053 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : ==> Parameters: 5a346836-cacf-421a-9add-82bb98a5989b(String)
+2020-04-23 22:17:21.054 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-04-23 22:17:21.056 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? ) 
+2020-04-23 22:17:21.057 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.N.countByExample                 : ==> Parameters: 1(Long), 0(Integer)
+2020-04-23 22:17:21.060 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.N.countByExample                 : <==      Total: 1
+2020-04-23 22:17:21.061 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, GMTCREATE, GMTMODIFIED, CREATOR, COMMENTCOUNT, VIEWCOUNT, LIKECOUNT, TAG , DESCRIPTION from question where ID = ? 
+2020-04-23 22:17:21.061 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.Q.selectByPrimaryKey             : ==> Parameters: 26(Long)
+2020-04-23 22:17:21.062 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2020-04-23 22:17:21.063 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER where ID = ? 
+2020-04-23 22:17:21.063 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Long)
+2020-04-23 22:17:21.064 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2020-04-23 22:17:21.064 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.QuestionMapper.selectRelated     : ==>  Preparing: select * from question where id!=? and tag regexp ? 
+2020-04-23 22:17:21.065 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.QuestionMapper.selectRelated     : ==> Parameters: 26(Long), javascript(String)
+2020-04-23 22:17:21.066 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.QuestionMapper.selectRelated     : <==      Total: 1
+2020-04-23 22:17:21.067 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENTID, TYPE, COMMENTATOR, GMTCREATE, GMTMODIFIED, LIKECOUNT, CONTENT,COMMENTCOUNT from COMMENT WHERE ( PARENTID = ? and TYPE = ? ) order by gmtCreate desc 
+2020-04-23 22:17:21.067 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.CommentMapper.selectByExample    : ==> Parameters: 26(Long), 1(Integer)
+2020-04-23 22:17:21.069 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.m.CommentMapper.selectByExample    : <==      Total: 13
+2020-04-23 22:17:21.070 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNTID, NAME, TOKEN, GMTCREATE, GMTMODIFIED, BIO, AVATARURL from USER WHERE ( ID in ( ? ) ) 
+2020-04-23 22:17:21.071 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : ==> Parameters: 1(Long)
+2020-04-23 22:17:21.074 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2020-04-23 22:17:21.075 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.QuestionMapper.incView      : ==>  Preparing: update QUESTION set VIEWCOUNT = VIEWCOUNT + ? where id = ? 
+2020-04-23 22:17:21.076 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.QuestionMapper.incView      : ==> Parameters: 1(Integer), 26(Long)
+2020-04-23 22:17:21.159 DEBUG 16776 --- [http-nio-8080-exec-5] l.a.c.mapper.QuestionMapper.incView      : <==    Updates: 1
+2020-04-23 22:21:32.794  INFO 16776 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-23 22:21:32.795  INFO 16776 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-04-23 22:21:32.804  INFO 16776 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

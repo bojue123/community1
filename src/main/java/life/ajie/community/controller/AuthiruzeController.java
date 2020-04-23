@@ -53,12 +53,13 @@ public class AuthiruzeController {
         //利用信息类进入provider的API得到token
         GithubUser githubUser = githubProvider.getUser(accessToken);
         //利用token进入providerAPI得到user信息
-        if(githubUser!=null && githubUser.getId()!=null){
+        if(githubUser!=null && githubUser.getId()!=0){
             //登录成功，写cookie,和session
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(githubUser.getName());
+
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setAvatarUrl(githubUser.getAvatarUrl());
             userService.createOrUpdate(user);
