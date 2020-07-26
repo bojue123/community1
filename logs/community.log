@@ -159,3 +159,9 @@
 2020-07-26 10:04:29.364 DEBUG 4288 --- [http-nio-8080-exec-3] l.a.c.mapper.QuestionMapper.incView      : ==>  Preparing: update QUESTION set VIEWCOUNT = VIEWCOUNT + ? where id = ? 
 2020-07-26 10:04:29.364 DEBUG 4288 --- [http-nio-8080-exec-3] l.a.c.mapper.QuestionMapper.incView      : ==> Parameters: 1(Integer), 26(Long)
 2020-07-26 10:04:29.399 DEBUG 4288 --- [http-nio-8080-exec-3] l.a.c.mapper.QuestionMapper.incView      : <==    Updates: 1
+2020-07-26 13:50:33.102  INFO 9500 --- [main] l.a.community.CommunityApplicationTests  : Starting CommunityApplicationTests on Ò¹¿ÕµÄÖí with PID 9500 (started by 57765 in E:\idea_demo\community)
+2020-07-26 13:50:33.104  INFO 9500 --- [main] l.a.community.CommunityApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-26 13:50:35.688  INFO 9500 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-26 13:50:35.985  INFO 9500 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-26 13:50:36.342  INFO 9500 --- [main] l.a.community.CommunityApplicationTests  : Started CommunityApplicationTests in 3.666 seconds (JVM running for 4.889)
+2020-07-26 13:50:36.620  INFO 9500 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
